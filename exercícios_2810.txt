@@ -1,0 +1,90 @@
+	Em uma eleição para prefeito existem quatro candidatos e 2.000 eleitores. Os votos são
+informados através de códigos (de maneira similar a uma Urna Eletrônica). Os dados utilizados para a
+contagem dos votos obedecem a seguinte codificação:
+– 1, 2, 3 e 4: voto para os respectivos candidatos
+– 5: voto em branco
+– Qualquer valor diferente de 1,2,3,4 e 5 é considerado voto nulo.
+
+Elabore um programa que leia o voto de cada eleitor (código do candidato) , calcule e imprima na tela:
+– a porcentagem de votos para cada candidato
+– a quantidade de votos nulos
+– a quantidade de votos em branco
+
+
+RESPOSTA:
+import java.util.Scanner;
+public class eleicao {
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+
+		int sair = 1, cont = 0;
+		int g = 0;
+		int s = 0;
+		int p = 0;
+		int z = 0;
+		int b = 0;
+		int n = 0;
+
+		while (sair != 0 || cont <= 2000) {
+			System.out.println("Qual é o seu Candidato?");
+			int voto = input.nextInt();
+			if (voto == 1) {
+				System.out.println("Candidato Zé Galinha");
+				System.out.println("");
+				g = g + 1;
+			}
+
+			if (voto == 2) {
+				System.out.println("Candidato Sócrates");
+				System.out.println("");
+				s = s + 1;
+			}
+
+			if (voto == 3) {
+				System.out.println("Candidato Zélão ");
+				System.out.println("");
+				z = z + 1;
+			}
+
+			if (voto == 4) {
+				System.out.println("Candidato Pezão");
+				System.out.println("");
+				p = p + 1;
+			}
+
+			if (voto == 5) {
+				System.out.println("Voto em Branco");
+				System.out.println("");
+				b = b + 1;
+			}
+			if (voto > 5) {
+				System.out.println("Voto Nulo");
+				System.out.println("");
+				n = n + 1;
+			}
+			cont++;
+
+			if (voto == 0) {
+				sair = voto;
+				int vtotal = p + z + s + g + b + n;
+								
+				System.out.println("Contagem dos votos:");
+				System.out.println("Total dos votos: " + vtotal);
+				System.out.println("Pezão: " + "Total de votos: " + p 
+									+ " - " + (p * 100)/ vtotal + "%");
+				System.out.println("Zé Galinha: "+ "Total de votos: " + g
+									+ " - " + (g * 100)/ vtotal + "%");
+				System.out.println("Zélão: "+ "Total de votos: " + z
+									+ " - " + (z * 100)/ vtotal + "%");
+				System.out.println("Sócrates: "+ "Total de votos: " + s
+									+ " - " + (s * 100)/ vtotal + "%");
+				System.out.println("Brancos: " + b);
+				System.out.println("Nulos: " + n);
+
+				break;
+				
+			}
+		}
+	}
+}
